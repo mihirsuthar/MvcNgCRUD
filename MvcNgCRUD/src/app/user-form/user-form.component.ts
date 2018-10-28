@@ -23,11 +23,10 @@ export class UserFormComponent implements OnInit {
     ngOnInit() {
     }
 
-    addNewUser(values: FormGroup) {
+    addNewUser(values: FormGroup) {        
         if (values.controls['userId'].valid && values.controls['userName'].valid && values.controls['address'].valid &&
             values.controls['contactNo'].valid && values.controls['email'].valid) {
             alert('User Name: ' + values.controls['userId'].value);
         }
     }
-
 }
