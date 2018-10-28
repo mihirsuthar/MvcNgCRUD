@@ -1,0 +1,25 @@
+<div style="padding: 20px;">
+    <a href="" class="btn btn-primary" [routerLink]="['/userForm']">New User</a><br /><br />
+
+    <table class="table table-striped" *ngIf="usersList != null">
+        <tr>
+            <th>User Id</th>
+            <th>User Name</th>
+            <th>Address</th>
+            <th>Contact No</th>
+            <th>Email</th>
+        </tr>
+        <!--<app-user-data-row *ngFor ="let user of usersList" [user] = "user"></app-user-data-row>-->
+
+        <tr *ngFor="let user of usersList">
+            <td>{{user.userId}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.contactNo}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+
+
+
+    </table>
+</div>
