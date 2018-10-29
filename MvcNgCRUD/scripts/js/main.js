@@ -325,6 +325,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserFormComponent", function() { return UserFormComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _user_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user.model */ "./src/app/user.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -336,14 +338,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var UserFormComponent = /** @class */ (function () {
-    function UserFormComponent(fb) {
+    function UserFormComponent(fb, http) {
+        this.http = http;
         this.myForm = fb.group({
-            'userId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            'userName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            'address': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            'contactNo': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            'email': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
+            'UserId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'UserName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'Address': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'ContactNo': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'EmailId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
         });
     }
     UserFormComponent.prototype.ngOnInit = function () {
@@ -353,6 +358,18 @@ var UserFormComponent = /** @class */ (function () {
             values.controls['contactNo'].valid && values.controls['email'].valid) {
             alert('User Name: ' + values.controls['userId'].value);
         }
+        var user = new _user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
+        user.UserId = values.controls['userId'].value;
+        user.UserName = values.controls['UserName'].value;
+        user.Address = values.controls['Address'].value;
+        user.ContactNo = values.controls['ContactNo'].value;
+        user.EmailId = values.controls['EmailId'].value;
+        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ 'Content-Type': 'application/json' });
+        var options = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
+        this.http.post('/api/Users/AddUser', user, options).subscribe(function (response) {
+            var body = response.json();
+            alert(body);
+        });
     };
     UserFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -360,9 +377,29 @@ var UserFormComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./user-form.component.html */ "./src/app/user-form/user-form.component.html"),
             styles: [__webpack_require__(/*! ./user-form.component.css */ "./src/app/user-form/user-form.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]])
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"]])
     ], UserFormComponent);
     return UserFormComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/user.model.ts":
+/*!*******************************!*\
+  !*** ./src/app/user.model.ts ***!
+  \*******************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
 }());
 
 
@@ -387,7 +424,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"padding: 20px;\">\r\n    <a href=\"\" class=\"btn btn-primary\" [routerLink]=\"['/userForm']\">New User</a><br /><br />\r\n\r\n    <table class=\"table table-striped\" *ngIf=\"usersList != null\">\r\n        <tr>\r\n            <th>User Id</th>\r\n            <th>User Name</th>\r\n            <th>Address</th>\r\n            <th>Contact No</th>\r\n            <th>Email</th>\r\n        </tr>\r\n        <!--<app-user-data-row *ngFor =\"let user of usersList\" [user] = \"user\"></app-user-data-row>-->\r\n\r\n        <tr *ngFor=\"let user of usersList\">\r\n            <td>{{user.userId}}</td>\r\n            <td>{{user.userName}}</td>\r\n            <td>{{user.address}}</td>\r\n            <td>{{user.contactNo}}</td>\r\n            <td>{{user.email}}</td>\r\n        </tr>\r\n\r\n\r\n\r\n    </table>\r\n</div>\r\n"
+module.exports = "<div style=\"padding: 20px;\">\r\n    <a href=\"\" class=\"btn btn-primary\" [routerLink]=\"['/userForm']\">New User</a><br /><br />\r\n\r\n    <table class=\"table table-striped\" *ngIf=\"usersList != null\">\r\n        <tr>\r\n            <th>User Id</th>\r\n            <th>User Name</th>\r\n            <th>Address</th>\r\n            <th>Contact No</th>\r\n            <th>Email</th>\r\n        </tr>\r\n        <!--<app-user-data-row *ngFor =\"let user of usersList\" [user] = \"user\"></app-user-data-row>-->\r\n\r\n        <tr *ngFor=\"let user of usersList\">\r\n            <td>{{user.UserId}}</td>\r\n            <td>{{user.UserName}}</td>\r\n            <td>{{user.Address}}</td>\r\n            <td>{{user.ContactNo}}</td>\r\n            <td>{{user.EmailId}}</td>\r\n        </tr>\r\n\r\n\r\n\r\n    </table>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -402,6 +439,7 @@ module.exports = "<div style=\"padding: 20px;\">\r\n    <a href=\"\" class=\"btn
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersListComponent", function() { return UsersListComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -412,14 +450,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var UsersListComponent = /** @class */ (function () {
-    function UsersListComponent() {
-        this.usersList = [
-            { userId: "1", userName: "abc", address: "baroda", contactNo: 344738, email: "abc@gmail.com" },
-            { userId: "2", userName: "def", address: "anand", contactNo: 342378, email: "def@gmail.com" },
-            { userId: "3", userName: "ghi", address: "surat", contactNo: 298473, email: "ghi@gmail.com" },
-            { userId: "4", userName: "jkl", address: "rajkot", contactNo: 985849, email: "jkl@gmail.com" }
-        ];
+    function UsersListComponent(http) {
+        var _this = this;
+        this.http = http;
+        this.http.request('/api/Users/GetUsers')
+            .subscribe(function (response) {
+            _this.usersList = response.json();
+        });
+        //this.usersList = [
+        //    { UserId: "1", UserName: "abc", Address: "baroda", ContactNo: 344738, EmailId: "abc@gmail.com" },
+        //    { UserId: "2", UserName: "def", Address: "anand", ContactNo: 342378, EmailId: "def@gmail.com" },
+        //    { UserId: "3", UserName: "ghi", Address: "surat", ContactNo: 298473, EmailId: "ghi@gmail.com" },
+        //    { UserId: "4", UserName: "jkl", Address: "rajkot", ContactNo: 985849, EmailId: "jkl@gmail.com" }
+        //];
     }
     UsersListComponent.prototype.ngOnInit = function () {
     };
@@ -429,7 +474,7 @@ var UsersListComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./users-list.component.html */ "./src/app/users-list/users-list.component.html"),
             styles: [__webpack_require__(/*! ./users-list.component.css */ "./src/app/users-list/users-list.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
     ], UsersListComponent);
     return UsersListComponent;
 }());
@@ -499,7 +544,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Mihir\source\repos\MvcNgCRUD\MvcNgCRUD\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Omatics\Source\Repos\MvcNgCRUD\MvcNgCRUD\src\main.ts */"./src/main.ts");
 
 
 /***/ })
