@@ -22,9 +22,16 @@ export class UsersListComponent implements OnInit {
         //    { UserId: "2", UserName: "def", Address: "anand", ContactNo: 342378, EmailId: "def@gmail.com" },
         //    { UserId: "3", UserName: "ghi", Address: "surat", ContactNo: 298473, EmailId: "ghi@gmail.com" },
         //    { UserId: "4", UserName: "jkl", Address: "rajkot", ContactNo: 985849, EmailId: "jkl@gmail.com" }
-        //];
+       //];
+    }
+
+    editUser(event, userId) {
+        alert('User Id: ' + userId);
+        event.stopPropagation();
     }
 
     ngOnInit() {
     }
+
+    
 }

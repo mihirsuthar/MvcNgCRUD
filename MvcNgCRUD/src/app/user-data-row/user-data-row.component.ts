@@ -12,6 +12,8 @@ export class UserDataRowComponent implements OnInit {
 
     constructor() { }
 
+    
+
     ngOnInit() {
     }
 

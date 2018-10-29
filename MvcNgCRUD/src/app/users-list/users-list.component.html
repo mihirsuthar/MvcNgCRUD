@@ -8,6 +8,7 @@
             <th>Address</th>
             <th>Contact No</th>
             <th>Email</th>
+            <th>Actions</th>
         </tr>
         <!--<app-user-data-row *ngFor ="let user of usersList" [user] = "user"></app-user-data-row>-->
 
@@ -17,6 +18,9 @@
             <td>{{user.Address}}</td>
             <td>{{user.ContactNo}}</td>
             <td>{{user.EmailId}}</td>
+            <td colspan="2"><a href="#" class="text text-success" (click)="editUser($event, user.UserId)" [routerLink]="['/userForm', user.UserId]">Edit</a>&nbsp;&nbsp;
+                <a href="#" class="text text-danger">Delete</a>
+            </td>
         </tr>
 
 

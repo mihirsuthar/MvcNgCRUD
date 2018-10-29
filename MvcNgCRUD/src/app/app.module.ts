@@ -14,7 +14,8 @@ import { UserFormComponent } from './user-form/user-form.component';
 const routes: Routes = [
     { path: '', redirectTo: 'userList', pathMatch: 'full' },
     { path: 'userList', component: UsersListComponent },
-    { path: 'userForm', component: UserFormComponent }
+    { path: 'userForm', component: UserFormComponent },
+    { path: 'userForm/:id', component: UserFormComponent }
 ];
 
 @NgModule({

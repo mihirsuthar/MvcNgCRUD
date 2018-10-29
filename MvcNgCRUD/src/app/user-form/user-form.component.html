@@ -4,10 +4,16 @@
     <span class="alert alert-danger" *ngIf = "isError">{{error}}</span>
 
     <form [formGroup]="myForm" (ngSubmit)="addNewUser(myForm)" class="form-horizontal">
-        <div calss="form-group">
+        <div calss="form-group" *ngIf ="isAdd">
             <label for="productName">User Id:</label>
             <input type="text" id="userId" class="form-control" name="userId" placeholder="User Id"
                    [formControl]="myForm.get('UserId')" />
+        </div><br />
+
+        <div calss="form-group" *ngIf="!isAdd">
+            <label for="productName">User Id:</label>
+            <input type="text" id="userId" class="form-control" name="userId" placeholder="User Id"
+                   [formControl]="myForm.get('UserId')" readonly ="readonly" />
         </div><br />
 
         <div calss="form-group">
