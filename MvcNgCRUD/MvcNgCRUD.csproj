@@ -114,6 +114,9 @@
     <Content Include=".gitignore" />
     <Content Include="contents\bootstrap.css" />
     <Content Include="contents\bootstrap.min.css" />
+    <Content Include="contents\Images\Loading-gif.gif" />
+    <Content Include="contents\Images\Loading_icon.gif" />
+    <Content Include="contents\Images\tenor.gif" />
     <Content Include="e2e\protractor.conf.js" />
     <Content Include="Global.asax" />
     <Content Include="Models\UsersDataModel.Context.tt">
@@ -145,6 +148,8 @@
     <Content Include="src\app\app.component.html" />
     <Content Include="src\app\navbar\navbar.component.css" />
     <Content Include="src\app\navbar\navbar.component.html" />
+    <Content Include="src\app\overlay-model\overlay-model.component.css" />
+    <Content Include="src\app\overlay-model\overlay-model.component.html" />
     <Content Include="src\app\user-data-row\user-data-row.component.css" />
     <Content Include="src\app\user-data-row\user-data-row.component.html" />
     <Content Include="src\app\user-form\user-form.component.css" />
@@ -233,6 +238,8 @@
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\navbar\navbar.component.spec.ts" />
     <TypeScriptCompile Include="src\app\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="src\app\overlay-model\overlay-model.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\overlay-model\overlay-model.component.ts" />
     <TypeScriptCompile Include="src\app\user-data-row\user-data-row.component.spec.ts" />
     <TypeScriptCompile Include="src\app\user-data-row\user-data-row.component.ts" />
     <TypeScriptCompile Include="src\app\user-form\user-form.component.spec.ts" />

@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UsersListComponent implements OnInit {
 
     usersList: object;
+    showLoader: boolean;
     
     constructor(private http: Http, private router: Router) {
 
@@ -50,10 +51,11 @@ export class UsersListComponent implements OnInit {
 
     loadUsersData()
     {
+        this.showLoader = true;
         this.http.request('/api/Users/GetUsers')
             .subscribe((response: Response) => {
                 this.usersList = response.json();
-
+                this.showLoader = false;
             });
     }
 

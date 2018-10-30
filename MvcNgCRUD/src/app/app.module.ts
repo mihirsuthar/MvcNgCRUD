@@ -10,6 +10,7 @@ import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 import { UserDataRowComponent } from './user-data-row/user-data-row.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { OverlayModelComponent } from './overlay-model/overlay-model.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'userList', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
         NavbarComponent,
         UserDataRowComponent,
         UsersListComponent,
-        UserFormComponent
+        UserFormComponent,
+        OverlayModelComponent
     ],
     imports: [
         BrowserModule,

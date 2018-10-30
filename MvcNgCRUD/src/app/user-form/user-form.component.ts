@@ -44,10 +44,8 @@ export class UserFormComponent implements OnInit {
                         'Address': [this.userData['Address'], Validators.required],
                         'ContactNo': [this.userData['ContactNo'], Validators.required],
                         'EmailId': [this.userData['EmailId'], Validators.required]
-                    });
-                    
-                });
-            
+                    });                    
+                });            
         }
         else {
             this.isAdd = true;
@@ -63,7 +61,6 @@ export class UserFormComponent implements OnInit {
                 'EmailId': ['', Validators.required]
             });
         }
-
 
         this.myForm = fb.group({
             'Id': [''],

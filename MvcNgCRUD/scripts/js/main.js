@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".modal {\r\n    display: block; /* Hidden by default */\r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    padding-top: 100px; /* Location of the box */\r\n    left: 0;\r\n    top: 0;\r\n    width: 100%; /* Full width */\r\n    height: 100%; /* Full height */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n}\r\n\r\n/* Modal Content */\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: auto;\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 20%;\r\n}"
 
 /***/ }),
 
@@ -107,12 +107,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_data_row_user_data_row_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-data-row/user-data-row.component */ "./src/app/user-data-row/user-data-row.component.ts");
 /* harmony import */ var _users_list_users_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./users-list/users-list.component */ "./src/app/users-list/users-list.component.ts");
 /* harmony import */ var _user_form_user_form_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user-form/user-form.component */ "./src/app/user-form/user-form.component.ts");
+/* harmony import */ var _overlay_model_overlay_model_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./overlay-model/overlay-model.component */ "./src/app/overlay-model/overlay-model.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -140,7 +142,8 @@ var AppModule = /** @class */ (function () {
                 _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_6__["NavbarComponent"],
                 _user_data_row_user_data_row_component__WEBPACK_IMPORTED_MODULE_8__["UserDataRowComponent"],
                 _users_list_users_list_component__WEBPACK_IMPORTED_MODULE_9__["UsersListComponent"],
-                _user_form_user_form_component__WEBPACK_IMPORTED_MODULE_10__["UserFormComponent"]
+                _user_form_user_form_component__WEBPACK_IMPORTED_MODULE_10__["UserFormComponent"],
+                _overlay_model_overlay_model_component__WEBPACK_IMPORTED_MODULE_11__["OverlayModelComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -219,6 +222,69 @@ var NavbarComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], NavbarComponent);
     return NavbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/overlay-model/overlay-model.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/overlay-model/overlay-model.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".modal {\r\n    display: block; /* Hidden by default */\r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    padding-top: 100px; /* Location of the box */\r\n    left: 0;\r\n    top: 0;\r\n    width: 100%; /* Full width */\r\n    height: 100%; /* Full height */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n}\r\n\r\n/* Modal Content */\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: auto;\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 20%;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/overlay-model/overlay-model.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/overlay-model/overlay-model.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"myModal\" class=\"modal\">\r\n\r\n    <!-- Modal content -->\r\n    <div class=\"modal-content\">\r\n        <img src=\"/contents/Images/Loading-gif.gif\" width=\"30\" height=\"30\" style=\"float: left;\" />\r\n        <h5 style=\"float:right;\">Getting user data...</h5>\r\n    </div>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/overlay-model/overlay-model.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/overlay-model/overlay-model.component.ts ***!
+  \**********************************************************/
+/*! exports provided: OverlayModelComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OverlayModelComponent", function() { return OverlayModelComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var OverlayModelComponent = /** @class */ (function () {
+    function OverlayModelComponent() {
+    }
+    OverlayModelComponent.prototype.ngOnInit = function () {
+    };
+    OverlayModelComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-overlay-model',
+            template: __webpack_require__(/*! ./overlay-model.component.html */ "./src/app/overlay-model/overlay-model.component.html"),
+            styles: [__webpack_require__(/*! ./overlay-model.component.css */ "./src/app/overlay-model/overlay-model.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], OverlayModelComponent);
+    return OverlayModelComponent;
 }());
 
 
@@ -412,7 +478,6 @@ var UserFormComponent = /** @class */ (function () {
             var options = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
             if (this.isAdd) { //Add User
                 this.http.post('/api/Users/AddUser', user, options).subscribe(function (response) {
-                    //let body = response.json();
                     if (response.status == 200) {
                         _this.router.navigate(['/userList']);
                     }
@@ -424,7 +489,6 @@ var UserFormComponent = /** @class */ (function () {
             }
             else { //Edit user
                 this.http.post('/api/Users/EditUser', user, options).subscribe(function (response) {
-                    //let body = response.json();
                     if (response.status == 200) {
                         _this.router.navigate(['/userList']);
                     }
@@ -482,7 +546,7 @@ var User = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".modal {\r\n    display: block; /* Hidden by default */\r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    padding-top: 100px; /* Location of the box */\r\n    left: 0;\r\n    top: 0;\r\n    width: 100%; /* Full width */\r\n    height: 100%; /* Full height */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n}\r\n\r\n/* Modal Content */\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: auto;\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 20%;\r\n}"
 
 /***/ }),
 
@@ -493,7 +557,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"padding: 20px;\">\r\n    <a href=\"\" class=\"btn btn-primary\" [routerLink]=\"['/userForm']\">New User</a><br /><br />\r\n\r\n    <table class=\"table table-striped\" *ngIf=\"usersList != null\">\r\n        <tr>\r\n            <th>User Id</th>\r\n            <th>User Name</th>\r\n            <th>Address</th>\r\n            <th>Contact No</th>\r\n            <th>Email</th>\r\n            <th>Actions</th>\r\n        </tr>\r\n        <!--<app-user-data-row *ngFor =\"let user of usersList\" [user] = \"user\"></app-user-data-row>-->\r\n\r\n        <tr *ngFor=\"let user of usersList\">\r\n            <td>{{user.UserId}}</td>\r\n            <td>{{user.UserName}}</td>\r\n            <td>{{user.Address}}</td>\r\n            <td>{{user.ContactNo}}</td>\r\n            <td>{{user.EmailId}}</td>\r\n            <td colspan=\"2\">\r\n                <a href=\"#\" class=\"text text-success\" (click)=\"editUser($event, user.UserId)\" [routerLink]=\"['/userForm', user.UserId]\">Edit</a>&nbsp;&nbsp;\r\n                <a href=\"#\" class=\"text text-danger\" (click)=\"deleteUser($event, user.UserId, user.UserName)\">Delete</a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</div>\r\n"
+module.exports = "<div style=\"padding: 20px;\">\r\n    <a href=\"\" class=\"btn btn-primary\" [routerLink]=\"['/userForm']\">New User</a><br /><br />\r\n\r\n    <table class=\"table table-striped\" *ngIf=\"usersList != null\">\r\n        <tr>\r\n            <th>User Id</th>\r\n            <th>User Name</th>\r\n            <th>Address</th>\r\n            <th>Contact No</th>\r\n            <th>Email</th>\r\n            <th>Actions</th>\r\n        </tr>\r\n        <!--<app-user-data-row *ngFor =\"let user of usersList\" [user] = \"user\"></app-user-data-row>-->\r\n\r\n        <tr *ngFor=\"let user of usersList\">\r\n            <td>{{user.UserId}}</td>\r\n            <td>{{user.UserName}}</td>\r\n            <td>{{user.Address}}</td>\r\n            <td>{{user.ContactNo}}</td>\r\n            <td>{{user.EmailId}}</td>\r\n            <td colspan=\"2\">\r\n                <a href=\"#\" class=\"text text-success\" [routerLink]=\"['/userForm', user.UserId]\">Edit</a>&nbsp;&nbsp;\r\n                <a href=\"#\" class=\"text text-danger\" (click)=\"deleteUser($event, user.UserId, user.UserName)\">Delete</a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</div>\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal\" *ngIf=\"showLoader\" >\r\n    <!-- Modal content -->\r\n    <div class=\"modal-content\">                \r\n        <img src=\"/contents/Images/Loading-gif.gif\" width=\"30\" height=\"30\" style=\"float: left;\" />\r\n        <h5 style=\"float:right;\">Getting user data...</h5>\r\n    </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -529,10 +593,6 @@ var UsersListComponent = /** @class */ (function () {
         this.http = http;
         this.router = router;
         this.loadUsersData();
-        //this.http.request('/api/Users/GetUsers')
-        //    .subscribe((response: Response) => {
-        //        this.usersList = response.json();
-        //    });
         //this.usersList = [
         //    { UserId: "1", UserName: "abc", Address: "baroda", ContactNo: 344738, EmailId: "abc@gmail.com" },
         //    { UserId: "2", UserName: "def", Address: "anand", ContactNo: 342378, EmailId: "def@gmail.com" },
@@ -540,10 +600,6 @@ var UsersListComponent = /** @class */ (function () {
         //    { UserId: "4", UserName: "jkl", Address: "rajkot", ContactNo: 985849, EmailId: "jkl@gmail.com" }
         //];
     }
-    UsersListComponent.prototype.editUser = function (event, userId) {
-        //alert('User Id: ' + userId);
-        event.stopPropagation();
-    };
     UsersListComponent.prototype.deleteUser = function (event, userId, userName) {
         var _this = this;
         if (confirm("Are you sure to delete data of user \'" + userId + ", " + userName + "\'?")) {
@@ -552,10 +608,7 @@ var UsersListComponent = /** @class */ (function () {
             var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({ 'Content-Type': 'application/json' });
             var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ headers: headers });
             this.http.post('/api/Users/DeleteUser', user, options).subscribe(function (response) {
-                //let body = response.json();
                 if (response.status == 200) {
-                    //this.router.navigateByUrl('/userForm', { skipLocationChange: true }).then(() => { this.router.navigate(['/userList']) });
-                    //location.reload();
                     _this.loadUsersData();
                 }
                 else {
@@ -566,9 +619,11 @@ var UsersListComponent = /** @class */ (function () {
     };
     UsersListComponent.prototype.loadUsersData = function () {
         var _this = this;
+        this.showLoader = true;
         this.http.request('/api/Users/GetUsers')
             .subscribe(function (response) {
             _this.usersList = response.json();
+            _this.showLoader = false;
         });
     };
     UsersListComponent.prototype.ngOnInit = function () {
