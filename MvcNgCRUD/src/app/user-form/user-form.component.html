@@ -11,7 +11,7 @@
             <label for="productName">User Id:</label>
             <input type="text" id="userId" class="form-control" name="userId" placeholder="User Id"
                    [formControl]="myForm.get('UserId')" />
-        </div><br />
+        </div>
 
         <div calss="form-group" *ngIf="!isAdd">
             <label for="productName">User Id:</label>
@@ -44,11 +44,12 @@
         </div><br />
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp;
+            <a href="" class="btn btn-danger" [routerLink]="['/userList']">Cancel</a>
         </div><br />
 
     </form>
 
-    <a href="" class="btn btn-danger" [routerLink]="['/userList']">Back to User List</a>
+    
 
 </div>

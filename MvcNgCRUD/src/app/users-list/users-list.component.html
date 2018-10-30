@@ -18,12 +18,10 @@
             <td>{{user.Address}}</td>
             <td>{{user.ContactNo}}</td>
             <td>{{user.EmailId}}</td>
-            <td colspan="2"><a href="#" class="text text-success" (click)="editUser($event, user.UserId)" [routerLink]="['/userForm', user.UserId]">Edit</a>&nbsp;&nbsp;
-                <a href="#" class="text text-danger">Delete</a>
+            <td colspan="2">
+                <a href="#" class="text text-success" [routerLink]="['/userForm', user.UserId]">Edit</a>&nbsp;&nbsp;
+                <a href="#" class="text text-danger" (click)="deleteUser($event, user.UserId, user.UserName)">Delete</a>
             </td>
         </tr>
-
-
-
     </table>
 </div>

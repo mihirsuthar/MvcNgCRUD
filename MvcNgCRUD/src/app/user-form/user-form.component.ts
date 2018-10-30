@@ -22,7 +22,7 @@ export class UserFormComponent implements OnInit {
         if (this._ActivatedRoute.snapshot.params['id'] != null) {
             this.isAdd = false;
 
-            alert("Edit Data of User Id: " + this._ActivatedRoute.snapshot.params['id']);
+            //alert("Edit Data of User Id: " + this._ActivatedRoute.snapshot.params['id']);
 
             let headers = new Headers({ 'Content-Type': 'application/json' });
             let options = new RequestOptions({ headers: headers });
@@ -52,7 +52,7 @@ export class UserFormComponent implements OnInit {
         else {
             this.isAdd = true;
 
-            alert("add new user");
+            //alert("add new user");
 
             this.myForm = fb.group({
                 'Id': [''],
@@ -84,43 +84,47 @@ export class UserFormComponent implements OnInit {
     addNewUser(values: FormGroup) {
         if (values.controls['UserId'].valid && values.controls['UserName'].valid && values.controls['Address'].valid &&
             values.controls['ContactNo'].valid && values.controls['EmailId'].valid) {
-            alert('User Name: ' + values.controls['UserId'].value);
+            //alert('User Name: ' + values.controls['UserId'].value);
+            let user = new User();
+            user.Id = values.controls['Id'].value;
+            user.UserId = values.controls['UserId'].value;
+            user.UserName = values.controls['UserName'].value;
+            user.Address = values.controls['Address'].value;
+            user.ContactNo = values.controls['ContactNo'].value;
+            user.EmailId = values.controls['EmailId'].value;
+
+            let headers = new Headers({ 'Content-Type': 'application/json' });
+            let options = new RequestOptions({ headers: headers });
+
+            if (this.isAdd) { //Add User
+                this.http.post('/api/Users/AddUser', user, options).subscribe((response: Response) => {                    
+                    if (response.status == 200) {
+                        this.router.navigate(['/userList']);
+                    }
+                    else {
+                        this.isError = true;
+                        this.error = "Unable to add user";
+                    }
+                });
+            }
+            else {//Edit user
+                this.http.post('/api/Users/EditUser', user, options).subscribe((response: Response) => {
+                    
+                    if (response.status == 200) {
+                        this.router.navigate(['/userList']);
+                    }
+                    else {
+                        alert("Unable to edit user");
+                        //this.isError = true;
+                        //this.error = "Unable to edit user";
+                    }
+                });
+            }
+        }
+        else {
+            alert('Please enter valid data.');
         }
 
-        let user = new User();
-        user.Id = values.controls['Id'].value;
-        user.UserId = values.controls['UserId'].value;
-        user.UserName = values.controls['UserName'].value;
-        user.Address = values.controls['Address'].value;
-        user.ContactNo = values.controls['ContactNo'].value;
-        user.EmailId = values.controls['EmailId'].value;
-
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        if (this.isAdd) { //Add User
-            this.http.post('/api/Users/AddUser', user, options).subscribe((response: Response) => {
-                //let body = response.json();
-                if (response.status == 200) {
-                    this.router.navigate(['/userList']);
-                }
-                else {
-                    this.isError = true;
-                    this.error = "Unable to add user";
-                }
-            });
-        }
-        else {//Edit user
-            this.http.post('/api/Users/EditUser', user, options).subscribe((response: Response) => {
-                //let body = response.json();
-                if (response.status == 200) {
-                    this.router.navigate(['/userList']);
-                }
-                else {
-                    this.isError = true;
-                    this.error = "Unable to edit user";
-                }
-            });
-        }
+        
     }
 }

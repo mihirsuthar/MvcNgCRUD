@@ -310,7 +310,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"padding: 20px;\">\r\n\r\n    \r\n    <span class=\"alert alert-danger\" *ngIf = \"isError\">{{error}}</span>\r\n\r\n    <form [formGroup]=\"myForm\" (ngSubmit)=\"addNewUser(myForm)\" class=\"form-horizontal\">\r\n\r\n        <input type=\"hidden\" [formControl]=\"myForm.get('Id')\" id=\"Id\" name=\"Id\"/>\r\n\r\n        <div calss=\"form-group\" *ngIf =\"isAdd\">\r\n            <label for=\"productName\">User Id:</label>\r\n            <input type=\"text\" id=\"userId\" class=\"form-control\" name=\"userId\" placeholder=\"User Id\"\r\n                   [formControl]=\"myForm.get('UserId')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\" *ngIf=\"!isAdd\">\r\n            <label for=\"productName\">User Id:</label>\r\n            <input type=\"text\" id=\"userId\" class=\"form-control\" name=\"userId\" placeholder=\"User Id\"\r\n                   [formControl]=\"myForm.get('UserId')\" readonly =\"readonly\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">User Name:</label>\r\n            <input type=\"text\" id=\"userName\" class=\"form-control\" name=\"userName\" placeholder=\"User Name\"\r\n                   [formControl]=\"myForm.get('UserName')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Address:</label>\r\n            <input type=\"text\" id=\"address\" class=\"form-control\" name=\"address\" placeholder=\"Address\"\r\n                   [formControl]=\"myForm.get('Address')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Contact Number:</label>\r\n            <input type=\"text\" id=\"contactNo\" class=\"form-control\" name=\"contactNo\" placeholder=\"Contact Number\"\r\n                   [formControl]=\"myForm.get('ContactNo')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Email Id:</label>\r\n            <input type=\"text\" id=\"email\" class=\"form-control\" name=\"email\" placeholder=\"Email Id\"\r\n                   [formControl]=\"myForm.get('EmailId')\" />\r\n        </div><br />\r\n\r\n        <div class=\"form-group\">\r\n            <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\r\n        </div><br />\r\n\r\n    </form>\r\n\r\n    <a href=\"\" class=\"btn btn-danger\" [routerLink]=\"['/userList']\">Back to User List</a>\r\n\r\n</div>\r\n"
+module.exports = "<div style=\"padding: 20px;\">\r\n\r\n    \r\n    <span class=\"alert alert-danger\" *ngIf = \"isError\">{{error}}</span>\r\n\r\n    <form [formGroup]=\"myForm\" (ngSubmit)=\"addNewUser(myForm)\" class=\"form-horizontal\">\r\n\r\n        <input type=\"hidden\" [formControl]=\"myForm.get('Id')\" id=\"Id\" name=\"Id\"/>\r\n\r\n        <div calss=\"form-group\" *ngIf =\"isAdd\">\r\n            <label for=\"productName\">User Id:</label>\r\n            <input type=\"text\" id=\"userId\" class=\"form-control\" name=\"userId\" placeholder=\"User Id\"\r\n                   [formControl]=\"myForm.get('UserId')\" />\r\n        </div>\r\n\r\n        <div calss=\"form-group\" *ngIf=\"!isAdd\">\r\n            <label for=\"productName\">User Id:</label>\r\n            <input type=\"text\" id=\"userId\" class=\"form-control\" name=\"userId\" placeholder=\"User Id\"\r\n                   [formControl]=\"myForm.get('UserId')\" readonly =\"readonly\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">User Name:</label>\r\n            <input type=\"text\" id=\"userName\" class=\"form-control\" name=\"userName\" placeholder=\"User Name\"\r\n                   [formControl]=\"myForm.get('UserName')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Address:</label>\r\n            <input type=\"text\" id=\"address\" class=\"form-control\" name=\"address\" placeholder=\"Address\"\r\n                   [formControl]=\"myForm.get('Address')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Contact Number:</label>\r\n            <input type=\"text\" id=\"contactNo\" class=\"form-control\" name=\"contactNo\" placeholder=\"Contact Number\"\r\n                   [formControl]=\"myForm.get('ContactNo')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Email Id:</label>\r\n            <input type=\"text\" id=\"email\" class=\"form-control\" name=\"email\" placeholder=\"Email Id\"\r\n                   [formControl]=\"myForm.get('EmailId')\" />\r\n        </div><br />\r\n\r\n        <div class=\"form-group\">\r\n            <button type=\"submit\" class=\"btn btn-primary\">Submit</button>&nbsp;&nbsp;&nbsp;\r\n            <a href=\"\" class=\"btn btn-danger\" [routerLink]=\"['/userList']\">Cancel</a>\r\n        </div><br />\r\n\r\n    </form>\r\n\r\n    \r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -351,7 +351,7 @@ var UserFormComponent = /** @class */ (function () {
         this._ActivatedRoute = _ActivatedRoute;
         if (this._ActivatedRoute.snapshot.params['id'] != null) {
             this.isAdd = false;
-            alert("Edit Data of User Id: " + this._ActivatedRoute.snapshot.params['id']);
+            //alert("Edit Data of User Id: " + this._ActivatedRoute.snapshot.params['id']);
             var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ 'Content-Type': 'application/json' });
             var options = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
             var data = { UserId: this._ActivatedRoute.snapshot.params['id'] };
@@ -373,7 +373,7 @@ var UserFormComponent = /** @class */ (function () {
         }
         else {
             this.isAdd = true;
-            alert("add new user");
+            //alert("add new user");
             this.myForm = fb.group({
                 'Id': [''],
                 'UserId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
@@ -400,40 +400,44 @@ var UserFormComponent = /** @class */ (function () {
         var _this = this;
         if (values.controls['UserId'].valid && values.controls['UserName'].valid && values.controls['Address'].valid &&
             values.controls['ContactNo'].valid && values.controls['EmailId'].valid) {
-            alert('User Name: ' + values.controls['UserId'].value);
+            //alert('User Name: ' + values.controls['UserId'].value);
+            var user = new _user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
+            user.Id = values.controls['Id'].value;
+            user.UserId = values.controls['UserId'].value;
+            user.UserName = values.controls['UserName'].value;
+            user.Address = values.controls['Address'].value;
+            user.ContactNo = values.controls['ContactNo'].value;
+            user.EmailId = values.controls['EmailId'].value;
+            var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ 'Content-Type': 'application/json' });
+            var options = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
+            if (this.isAdd) { //Add User
+                this.http.post('/api/Users/AddUser', user, options).subscribe(function (response) {
+                    //let body = response.json();
+                    if (response.status == 200) {
+                        _this.router.navigate(['/userList']);
+                    }
+                    else {
+                        _this.isError = true;
+                        _this.error = "Unable to add user";
+                    }
+                });
+            }
+            else { //Edit user
+                this.http.post('/api/Users/EditUser', user, options).subscribe(function (response) {
+                    //let body = response.json();
+                    if (response.status == 200) {
+                        _this.router.navigate(['/userList']);
+                    }
+                    else {
+                        alert("Unable to edit user");
+                        //this.isError = true;
+                        //this.error = "Unable to edit user";
+                    }
+                });
+            }
         }
-        var user = new _user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
-        user.Id = values.controls['Id'].value;
-        user.UserId = values.controls['UserId'].value;
-        user.UserName = values.controls['UserName'].value;
-        user.Address = values.controls['Address'].value;
-        user.ContactNo = values.controls['ContactNo'].value;
-        user.EmailId = values.controls['EmailId'].value;
-        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ 'Content-Type': 'application/json' });
-        var options = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
-        if (this.isAdd) { //Add User
-            this.http.post('/api/Users/AddUser', user, options).subscribe(function (response) {
-                //let body = response.json();
-                if (response.status == 200) {
-                    _this.router.navigate(['/userList']);
-                }
-                else {
-                    _this.isError = true;
-                    _this.error = "Unable to add user";
-                }
-            });
-        }
-        else { //Edit user
-            this.http.post('/api/Users/EditUser', user, options).subscribe(function (response) {
-                //let body = response.json();
-                if (response.status == 200) {
-                    _this.router.navigate(['/userList']);
-                }
-                else {
-                    _this.isError = true;
-                    _this.error = "Unable to edit user";
-                }
-            });
+        else {
+            alert('Please enter valid data.');
         }
     };
     UserFormComponent = __decorate([
@@ -489,7 +493,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"padding: 20px;\">\r\n    <a href=\"\" class=\"btn btn-primary\" [routerLink]=\"['/userForm']\">New User</a><br /><br />\r\n\r\n    <table class=\"table table-striped\" *ngIf=\"usersList != null\">\r\n        <tr>\r\n            <th>User Id</th>\r\n            <th>User Name</th>\r\n            <th>Address</th>\r\n            <th>Contact No</th>\r\n            <th>Email</th>\r\n            <th>Actions</th>\r\n        </tr>\r\n        <!--<app-user-data-row *ngFor =\"let user of usersList\" [user] = \"user\"></app-user-data-row>-->\r\n\r\n        <tr *ngFor=\"let user of usersList\">\r\n            <td>{{user.UserId}}</td>\r\n            <td>{{user.UserName}}</td>\r\n            <td>{{user.Address}}</td>\r\n            <td>{{user.ContactNo}}</td>\r\n            <td>{{user.EmailId}}</td>\r\n            <td colspan=\"2\"><a href=\"#\" class=\"text text-success\" (click)=\"editUser($event, user.UserId)\" [routerLink]=\"['/userForm', user.UserId]\">Edit</a>&nbsp;&nbsp;\r\n                <a href=\"#\" class=\"text text-danger\">Delete</a>\r\n            </td>\r\n        </tr>\r\n\r\n\r\n\r\n    </table>\r\n</div>\r\n"
+module.exports = "<div style=\"padding: 20px;\">\r\n    <a href=\"\" class=\"btn btn-primary\" [routerLink]=\"['/userForm']\">New User</a><br /><br />\r\n\r\n    <table class=\"table table-striped\" *ngIf=\"usersList != null\">\r\n        <tr>\r\n            <th>User Id</th>\r\n            <th>User Name</th>\r\n            <th>Address</th>\r\n            <th>Contact No</th>\r\n            <th>Email</th>\r\n            <th>Actions</th>\r\n        </tr>\r\n        <!--<app-user-data-row *ngFor =\"let user of usersList\" [user] = \"user\"></app-user-data-row>-->\r\n\r\n        <tr *ngFor=\"let user of usersList\">\r\n            <td>{{user.UserId}}</td>\r\n            <td>{{user.UserName}}</td>\r\n            <td>{{user.Address}}</td>\r\n            <td>{{user.ContactNo}}</td>\r\n            <td>{{user.EmailId}}</td>\r\n            <td colspan=\"2\">\r\n                <a href=\"#\" class=\"text text-success\" (click)=\"editUser($event, user.UserId)\" [routerLink]=\"['/userForm', user.UserId]\">Edit</a>&nbsp;&nbsp;\r\n                <a href=\"#\" class=\"text text-danger\" (click)=\"deleteUser($event, user.UserId, user.UserName)\">Delete</a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -505,6 +509,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersListComponent", function() { return UsersListComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _user_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.model */ "./src/app/user.model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -516,14 +522,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var UsersListComponent = /** @class */ (function () {
-    function UsersListComponent(http) {
-        var _this = this;
+    function UsersListComponent(http, router) {
         this.http = http;
-        this.http.request('/api/Users/GetUsers')
-            .subscribe(function (response) {
-            _this.usersList = response.json();
-        });
+        this.router = router;
+        this.loadUsersData();
+        //this.http.request('/api/Users/GetUsers')
+        //    .subscribe((response: Response) => {
+        //        this.usersList = response.json();
+        //    });
         //this.usersList = [
         //    { UserId: "1", UserName: "abc", Address: "baroda", ContactNo: 344738, EmailId: "abc@gmail.com" },
         //    { UserId: "2", UserName: "def", Address: "anand", ContactNo: 342378, EmailId: "def@gmail.com" },
@@ -532,8 +541,35 @@ var UsersListComponent = /** @class */ (function () {
         //];
     }
     UsersListComponent.prototype.editUser = function (event, userId) {
-        alert('User Id: ' + userId);
+        //alert('User Id: ' + userId);
         event.stopPropagation();
+    };
+    UsersListComponent.prototype.deleteUser = function (event, userId, userName) {
+        var _this = this;
+        if (confirm("Are you sure to delete data of user \'" + userId + ", " + userName + "\'?")) {
+            var user = new _user_model__WEBPACK_IMPORTED_MODULE_2__["User"]();
+            user.UserId = userId;
+            var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({ 'Content-Type': 'application/json' });
+            var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ headers: headers });
+            this.http.post('/api/Users/DeleteUser', user, options).subscribe(function (response) {
+                //let body = response.json();
+                if (response.status == 200) {
+                    //this.router.navigateByUrl('/userForm', { skipLocationChange: true }).then(() => { this.router.navigate(['/userList']) });
+                    //location.reload();
+                    _this.loadUsersData();
+                }
+                else {
+                    alert("Unable to delete data of \'" + userName + "\'.");
+                }
+            });
+        }
+    };
+    UsersListComponent.prototype.loadUsersData = function () {
+        var _this = this;
+        this.http.request('/api/Users/GetUsers')
+            .subscribe(function (response) {
+            _this.usersList = response.json();
+        });
     };
     UsersListComponent.prototype.ngOnInit = function () {
     };
@@ -543,7 +579,7 @@ var UsersListComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./users-list.component.html */ "./src/app/users-list/users-list.component.html"),
             styles: [__webpack_require__(/*! ./users-list.component.css */ "./src/app/users-list/users-list.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], UsersListComponent);
     return UsersListComponent;
 }());

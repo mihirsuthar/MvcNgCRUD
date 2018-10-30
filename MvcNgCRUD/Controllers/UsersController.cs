@@ -98,13 +98,13 @@ namespace MvcNgCRUD.Controllers
 
         [Route("DeleteUser")]
         [HttpPost]
-        public IHttpActionResult DeleteUser(string UserId)
+        public IHttpActionResult DeleteUser(UserMaster existingUser)
         {
             try
             {
                 using (UsersContext db = new UsersContext())
                 {
-                    UserMaster user = db.UserMasters.Where(u => u.UserId == UserId).FirstOrDefault();
+                    UserMaster user = db.UserMasters.Where(u => u.UserId == existingUser.UserId).FirstOrDefault();
                     db.UserMasters.Remove(user);
                     db.SaveChanges();
 

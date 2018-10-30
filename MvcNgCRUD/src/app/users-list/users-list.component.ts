@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { User } from '../user.model';
+import { Router, ActivatedRoute } from '@angular/router'; 
+
 
 @Component({
     selector: 'app-users-list',
@@ -10,13 +13,10 @@ export class UsersListComponent implements OnInit {
 
     usersList: object;
     
-    constructor(private http: Http) {
+    constructor(private http: Http, private router: Router) {
 
-        this.http.request('/api/Users/GetUsers')
-            .subscribe((response: Response) => {
-                this.usersList = response.json();
-
-            });
+        this.loadUsersData();
+        
         //this.usersList = [
         //    { UserId: "1", UserName: "abc", Address: "baroda", ContactNo: 344738, EmailId: "abc@gmail.com" },
         //    { UserId: "2", UserName: "def", Address: "anand", ContactNo: 342378, EmailId: "def@gmail.com" },
@@ -25,9 +25,36 @@ export class UsersListComponent implements OnInit {
        //];
     }
 
-    editUser(event, userId) {
-        alert('User Id: ' + userId);
-        event.stopPropagation();
+    deleteUser(event, userId, userName) {
+
+        if (confirm("Are you sure to delete data of user \'" + userId + ", " + userName + "\'?"))
+        {
+            let user = new User();
+            user.UserId = userId;
+
+            let headers = new Headers({ 'Content-Type': 'application/json' });
+            let options = new RequestOptions({ headers: headers });
+
+            this.http.post('/api/Users/DeleteUser', user, options).subscribe((response: Response) => {
+                
+                if (response.status == 200) { 
+                    this.loadUsersData();
+                }
+                else {
+                    alert("Unable to delete data of \'" + userName + "\'.");
+                }
+            });
+        }
+        
+    }
+
+    loadUsersData()
+    {
+        this.http.request('/api/Users/GetUsers')
+            .subscribe((response: Response) => {
+                this.usersList = response.json();
+
+            });
     }
 
     ngOnInit() {
