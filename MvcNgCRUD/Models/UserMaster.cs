@@ -11,9 +11,10 @@ namespace MvcNgCRUD.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class UserMaster
-    {
+    {        
         public long Id { get; set; }
         public string UserId { get; set; }
         public string UserName { get; set; }

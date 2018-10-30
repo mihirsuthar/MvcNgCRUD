@@ -38,6 +38,7 @@ export class UserFormComponent implements OnInit {
                     this.userData = response.json();
 
                     this.myForm = fb.group({
+                        'Id': [this.userData['Id']],
                         'UserId': [this.userData['UserId'], Validators.required],
                         'UserName': [this.userData['UserName'], Validators.required],
                         'Address': [this.userData['Address'], Validators.required],
@@ -54,6 +55,7 @@ export class UserFormComponent implements OnInit {
             alert("add new user");
 
             this.myForm = fb.group({
+                'Id': [''],
                 'UserId': ['', Validators.required],
                 'UserName': ['', Validators.required],
                 'Address': ['', Validators.required],
@@ -64,6 +66,7 @@ export class UserFormComponent implements OnInit {
 
 
         this.myForm = fb.group({
+            'Id': [''],
             'UserId': ['', Validators.required],
             'UserName': ['', Validators.required],
             'Address': ['', Validators.required],
@@ -85,6 +88,7 @@ export class UserFormComponent implements OnInit {
         }
 
         let user = new User();
+        user.Id = values.controls['Id'].value;
         user.UserId = values.controls['UserId'].value;
         user.UserName = values.controls['UserName'].value;
         user.Address = values.controls['Address'].value;

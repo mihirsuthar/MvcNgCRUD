@@ -4,6 +4,9 @@
     <span class="alert alert-danger" *ngIf = "isError">{{error}}</span>
 
     <form [formGroup]="myForm" (ngSubmit)="addNewUser(myForm)" class="form-horizontal">
+
+        <input type="hidden" [formControl]="myForm.get('Id')" id="Id" name="Id"/>
+
         <div calss="form-group" *ngIf ="isAdd">
             <label for="productName">User Id:</label>
             <input type="text" id="userId" class="form-control" name="userId" placeholder="User Id"

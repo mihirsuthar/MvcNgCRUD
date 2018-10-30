@@ -310,7 +310,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"padding: 20px;\">\r\n\r\n    \r\n    <span class=\"alert alert-danger\" *ngIf = \"isError\">{{error}}</span>\r\n\r\n    <form [formGroup]=\"myForm\" (ngSubmit)=\"addNewUser(myForm)\" class=\"form-horizontal\">\r\n        <div calss=\"form-group\" *ngIf =\"isAdd\">\r\n            <label for=\"productName\">User Id:</label>\r\n            <input type=\"text\" id=\"userId\" class=\"form-control\" name=\"userId\" placeholder=\"User Id\"\r\n                   [formControl]=\"myForm.get('UserId')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\" *ngIf=\"!isAdd\">\r\n            <label for=\"productName\">User Id:</label>\r\n            <input type=\"text\" id=\"userId\" class=\"form-control\" name=\"userId\" placeholder=\"User Id\"\r\n                   [formControl]=\"myForm.get('UserId')\" readonly =\"readonly\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">User Name:</label>\r\n            <input type=\"text\" id=\"userName\" class=\"form-control\" name=\"userName\" placeholder=\"User Name\"\r\n                   [formControl]=\"myForm.get('UserName')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Address:</label>\r\n            <input type=\"text\" id=\"address\" class=\"form-control\" name=\"address\" placeholder=\"Address\"\r\n                   [formControl]=\"myForm.get('Address')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Contact Number:</label>\r\n            <input type=\"text\" id=\"contactNo\" class=\"form-control\" name=\"contactNo\" placeholder=\"Contact Number\"\r\n                   [formControl]=\"myForm.get('ContactNo')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Email Id:</label>\r\n            <input type=\"text\" id=\"email\" class=\"form-control\" name=\"email\" placeholder=\"Email Id\"\r\n                   [formControl]=\"myForm.get('EmailId')\" />\r\n        </div><br />\r\n\r\n        <div class=\"form-group\">\r\n            <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\r\n        </div><br />\r\n\r\n    </form>\r\n\r\n    <a href=\"\" class=\"btn btn-danger\" [routerLink]=\"['/userList']\">Back to User List</a>\r\n\r\n</div>\r\n"
+module.exports = "<div style=\"padding: 20px;\">\r\n\r\n    \r\n    <span class=\"alert alert-danger\" *ngIf = \"isError\">{{error}}</span>\r\n\r\n    <form [formGroup]=\"myForm\" (ngSubmit)=\"addNewUser(myForm)\" class=\"form-horizontal\">\r\n\r\n        <input type=\"hidden\" [formControl]=\"myForm.get('Id')\" id=\"Id\" name=\"Id\"/>\r\n\r\n        <div calss=\"form-group\" *ngIf =\"isAdd\">\r\n            <label for=\"productName\">User Id:</label>\r\n            <input type=\"text\" id=\"userId\" class=\"form-control\" name=\"userId\" placeholder=\"User Id\"\r\n                   [formControl]=\"myForm.get('UserId')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\" *ngIf=\"!isAdd\">\r\n            <label for=\"productName\">User Id:</label>\r\n            <input type=\"text\" id=\"userId\" class=\"form-control\" name=\"userId\" placeholder=\"User Id\"\r\n                   [formControl]=\"myForm.get('UserId')\" readonly =\"readonly\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">User Name:</label>\r\n            <input type=\"text\" id=\"userName\" class=\"form-control\" name=\"userName\" placeholder=\"User Name\"\r\n                   [formControl]=\"myForm.get('UserName')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Address:</label>\r\n            <input type=\"text\" id=\"address\" class=\"form-control\" name=\"address\" placeholder=\"Address\"\r\n                   [formControl]=\"myForm.get('Address')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Contact Number:</label>\r\n            <input type=\"text\" id=\"contactNo\" class=\"form-control\" name=\"contactNo\" placeholder=\"Contact Number\"\r\n                   [formControl]=\"myForm.get('ContactNo')\" />\r\n        </div><br />\r\n\r\n        <div calss=\"form-group\">\r\n            <label for=\"productName\">Email Id:</label>\r\n            <input type=\"text\" id=\"email\" class=\"form-control\" name=\"email\" placeholder=\"Email Id\"\r\n                   [formControl]=\"myForm.get('EmailId')\" />\r\n        </div><br />\r\n\r\n        <div class=\"form-group\">\r\n            <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\r\n        </div><br />\r\n\r\n    </form>\r\n\r\n    <a href=\"\" class=\"btn btn-danger\" [routerLink]=\"['/userList']\">Back to User List</a>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -362,6 +362,7 @@ var UserFormComponent = /** @class */ (function () {
                 .subscribe(function (response) {
                 _this.userData = response.json();
                 _this.myForm = fb.group({
+                    'Id': [_this.userData['Id']],
                     'UserId': [_this.userData['UserId'], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
                     'UserName': [_this.userData['UserName'], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
                     'Address': [_this.userData['Address'], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
@@ -374,6 +375,7 @@ var UserFormComponent = /** @class */ (function () {
             this.isAdd = true;
             alert("add new user");
             this.myForm = fb.group({
+                'Id': [''],
                 'UserId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
                 'UserName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
                 'Address': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
@@ -382,6 +384,7 @@ var UserFormComponent = /** @class */ (function () {
             });
         }
         this.myForm = fb.group({
+            'Id': [''],
             'UserId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             'UserName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             'Address': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
@@ -400,6 +403,7 @@ var UserFormComponent = /** @class */ (function () {
             alert('User Name: ' + values.controls['UserId'].value);
         }
         var user = new _user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
+        user.Id = values.controls['Id'].value;
         user.UserId = values.controls['UserId'].value;
         user.UserName = values.controls['UserName'].value;
         user.Address = values.controls['Address'].value;
