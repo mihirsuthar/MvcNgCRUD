@@ -1,4 +1,4 @@
-﻿using MvcNgCRUD.Models;
+using MvcNgCRUD.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -7,7 +7,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-
 namespace MvcNgCRUD.Controllers
 {
     [RoutePrefix("api/Users")]
@@ -15,7 +14,7 @@ namespace MvcNgCRUD.Controllers
     {
         [Route("GetUsers")]
         [HttpGet]
-        public IHttpActionResult Gerusers()
+        public IHttpActionResult GetUsers()
         {
             try
             {
